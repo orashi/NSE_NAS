@@ -1,0 +1,11 @@
+Pillow_SIMD == 6.0.0.post0
+PyYAML == 5.3.1
+easydict == 1.9
+matplotlib == 3.1.1
+numpy == 1.19.5
+pandas == 0.25.2
+tensorboardX == 1.8
+torch == 1.5.0+cuda90.cudnn7.6.3.lms
+torchvision == 0.6.0+cu90
+
+# optional: Memcached

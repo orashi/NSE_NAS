@@ -1,0 +1,71 @@
+exp_name: NSE_sec
+
+sample_num: 2000
+
+dataset: imagenet
+algo: NSE
+seed: 233
+
+latency_alpha: 0
+latency_beta: 0
+latency_target: 0
+
+param_alpha: 0
+param_beta: 0
+param_target: 0
+
+mac_alpha: 0.00001
+mac_beta: 2
+mac_target: 300
+
+align: True
+contind: True
+max_rounds: 3
+
+Aiter: 2
+strict_prev: False
+pure_arch_opt: False
+balance: True
+drop_threshold: -2
+
+alloc_space: [1,3,3,3,3,3]
+channel_dist: [16,24,40,80,96,192,320]
+cell_plan: multi_mac_group
+alloc_plan: NER
+K: 5
+
+scale: 1.0
+workers: 256
+batch_size: 1024
+input_size: 224
+
+epochs: 100
+
+optim_W:
+    optim: SGD_nesterov
+    momentum: 0.9
+    weight_decay: 0.00004
+    no_wd: True
+
+    decay: cos
+    lr: 0.4         # lr starts from
+    lr_final: 0     # lr ends at
+
+    warm_epochs: 2
+    lr_warm: 0.1
+
+
+optim_A:
+    optim: Adam
+
+    lr: 0.005
+    beta1: 0
+    beta2: 0.999
+
+    decay: none
+
+print_freq: 100
+
+train_root: /..absolute/..path/..to/imagenet_dataset/images/train
+train_meta: /..absolute/..path/..to/resources/trains.txt
+arch_val_meta: /..absolute/..path/..to/resources/vals.txt
